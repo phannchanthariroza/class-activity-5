@@ -1,0 +1,87 @@
+1. Project Folder Structure
+	Step 1: Open the Docker-reg.log project folder.
+	Step 2: Confirm that register-service and login-service are inside it.
+	Step 3: Take a screenshot of the folder structure.
+
+2. Registration Microservice Dockerfile
+	Step 1: Open register-service/Dockerfile.
+	Step 2: Confirm that it installs dependencies and exposes port 5001.
+	Step 3: Take a screenshot of the Dockerfile.
+
+3. Login Microservice Dockerfile
+	Step 1: Open login-service/Dockerfile.
+	Step 2: Confirm that it installs dependencies and exposes port 5002.
+	Step 3: Take a screenshot of the Dockerfile.
+
+4. Docker Compose File with Port Mapping
+	Step 1: Open docker-compose.yml.
+	Step 2: Confirm the registration mapping is 5001:5001.
+	Step 3: Confirm the login mapping is 5002:5002.
+	Step 4: Take a screenshot of the Compose file.
+
+5. Build and Run Docker Compose
+	Step 1: Open a terminal in Docker-reg.log.
+	Step 2: Run: docker compose up -d --build
+	Step 3: Take a screenshot of the command and result.
+
+6. Check Both Containers
+	Step 1: Run: docker compose ps
+	Step 2: Confirm both containers show Up.
+	Step 3: Confirm ports 5001 and 5002 are published.
+	Step 4: Take a screenshot of the result.
+
+7. Registration API Postman Request
+	Step 1: Create a POST request.
+	Step 2: Use URL: http://localhost:5001/userregister
+	Step 3: Select Body, raw, and JSON.
+	Step 4: Send name, email, password, role, and phone fields.
+	Step 5: Send the request and take a screenshot of the response.
+
+8. Login API Postman Request
+	Step 1: Create a POST request.
+	Step 2: Use URL: http://localhost:5002/login
+	Step 3: Select Body, raw, and JSON.
+	Step 4: Send the registered email, password, and role.
+	Step 5: Send the request and take a screenshot of the response token.
+
+9. Stop and Remove All Containers
+	Step 1: Open a terminal in Docker-reg.log.
+	Step 2: Run: docker compose down
+	Step 3: Take a screenshot showing the containers were stopped.
+
+10. GitHub Repository
+	Step 1: Create or open the GitHub repository.
+	Step 2: Run: git add .
+	Step 3: Run: git commit -m "Add Docker deployment for microservices"
+	Step 4: Run: git push origin main
+	Step 5: Open GitHub and take a screenshot of the uploaded files.
+
+11. EC2 Configuration and Docker Installation
+	Step 1: Create an EC2 instance and allow SSH, TCP 5001, and TCP 5002.
+	Step 2: Connect to the EC2 instance using SSH.
+	Step 3: Run: sudo apt update
+	Step 4: Run: sudo apt install -y docker.io docker-compose-plugin git
+	Step 5: Run: sudo systemctl enable --now docker
+	Step 6: Clone the GitHub repository.
+	Step 7: Take a screenshot of the EC2 setup commands.
+
+12. Run Docker Compose on EC2
+	Step 1: Enter the cloned Docker-reg.log folder.
+	Step 2: Run: docker compose up -d --build
+	Step 3: Run: docker compose ps
+	Step 4: Confirm both containers are Up.
+	Step 5: Take a screenshot of the EC2 terminal.
+
+13. Registration and Login APIs on EC2 Using Postman
+	Step 1: Use POST http://<EC2_PUBLIC_IP>:5001/userregister.
+	Step 2: Send the registration JSON data.
+	Step 3: Use POST http://<EC2_PUBLIC_IP>:5002/login.
+	Step 4: Send the login JSON data.
+	Step 5: Take screenshots of both Postman responses.
+
+14. MongoDB Verification
+	Step 1: Open MongoDB Atlas.
+	Step 2: Open the university_db database.
+	Step 3: Open the users collection.
+	Step 4: Confirm the newly registered user is present.
+	Step 5: Take a screenshot of the MongoDB record.
